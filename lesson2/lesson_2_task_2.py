@@ -6,4 +6,4 @@ def is_year_leap(year):
         x ="год " + str(year) +": " + str(False)
         print(x)
 
-is_year_leap(2025)  
+is_year_leap(2216)  
