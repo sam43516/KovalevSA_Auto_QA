@@ -11,5 +11,5 @@ def fizz_buzz(n):
             print(x)
         x = x + 1   
 
-fizz_buzz(30)
+fizz_buzz(25)
                

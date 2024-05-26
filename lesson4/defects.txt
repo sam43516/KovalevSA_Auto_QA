@@ -1,0 +1,36 @@
+Функция принимает за последним символом строки - пустоту, а не символ с индексом = [-1]
+
+Функция:
+
+def end_with(self, string: str, symbol: str) -> bool:
+        """
+        Возвращает `True`, если строка заканчивается заданным символом и `False` - если нет \n 
+        Параметры: \n 
+            `string` - строка для обработки \n
+            `symbol` - искомый символ \n
+        Пример 1: `end_with("SkyPro", "o") -> True`
+        Пример 2: `end_with("SkyPro", "y") -> False`
+        """
+        return string.endswith(symbol)
+
+Тест:  
+
+@pytest.mark.parametrize("str, symbol, result", [("Семен", "", False)])
+def test_end_with_negative(str, symbol, result):
+    string = StringUtils()
+    res = string.end_with(str, symbol)
+    if symbol == "" and str != "":
+        pytest.xfail(reason= 'за неимением спецификации - считаю багом')
+    assert res == result
+
+
+Шаги:
+1)Открыть IDE
+2)Создать файл ****.py для работы на языке Python
+3)Скопировать из репозитория класс StringUtils в созданный файл
+4)Произвести импорт фреймворка с помощью команды:
+import pytest
+5)Запустить тест
+
+ОР:Тест не пройдет, ожидаемый результат программы = False, так как крайним элементом строки является русская буква "н" или \u043d на юникоде.
+ФР:Тест пройден, ожидаемый резльтат программы = True, крайнем элементом строки является пустота - "".
